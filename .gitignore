@@ -1,0 +1,6 @@
+assets/videos/*.mp4
+assets/img/student-photo.png
+assets/downloads/*.db
+assets/downloads/Student*.csv
+assets/downloads/Student.json
+assets/downloads/Student.xlsx

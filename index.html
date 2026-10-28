@@ -1,0 +1,455 @@
+<!-- <!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#f7faff">
+<meta name="description" content="Digital Laboratory. Experiment previews, overviews, videos and source code.">
+<title>Digital Laboratory</title>
+<link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body>
+
+<div class="bg-decor" aria-hidden="true">
+  <div class="orb orb-a"></div>
+  <div class="orb orb-b"></div>
+  <div class="grid-lines"></div>
+</div>
+
+<header class="topbar">
+  <button class="icon-btn topbar__menu" type="button" data-sidebar-toggle
+          aria-controls="siteNav" aria-expanded="true" aria-label="Close navigation menu" title="Toggle navigation menu">
+    <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor" aria-hidden="true">
+      <path d="M3 6h18v2H3zM3 12h18v2H3zM3 18h18v2H3z"/>
+    </svg>
+  </button>
+
+  <a class="topbar__brand" href="#/" data-link>
+    <span class="topbar__names">
+      <span class="topbar__lab">
+        <span data-bind="laboratory.name">Digital Laboratory</span>
+        <em class="topbar__tag" data-bind="laboratory.tagline">Digital Laboratory</em>
+      </span>
+    </span>
+  </a>
+
+  <div class="topbar__right">
+    <span class="chip chip--ghost"><span class="chip__label">Subject Code:</span>
+      <span data-bind="labMeta.subjectCode">22DS102006</span></span>
+  </div>
+</header>
+
+<div class="app-layout">
+  <aside class="sidebar" id="siteNav" aria-label="Main navigation">
+    <nav class="sidebar__nav">
+      <a class="sidebar__link" href="#/" data-link data-nav="home" title="Home">
+        <span class="sidebar__icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
+            <path d="M12 3 3 9v12h5v-7h8v7h5V9l-9-6z"/>
+          </svg>
+        </span>
+        <span class="sidebar__label">Home</span>
+      </a>
+      <a class="sidebar__link" href="#/modules" data-link data-nav="modules" title="Modules">
+        <span class="sidebar__icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
+            <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-1 16H6V5h12v14z"/>
+            <path d="M7 7h10v2H7zm0 4h10v2H7zm0 4h7v2H7z"/>
+          </svg>
+        </span>
+        <span class="sidebar__label">Modules</span>
+      </a>
+      <a class="sidebar__link" href="#/experiments" data-link data-nav="experiments" title="Experiments">
+        <span class="sidebar__icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
+            <path d="M3 3v18h18V3H3zm16 16H5V5h14v14z"/>
+            <path d="M7 7h4v4H7zm6 0h4v4h-4zm-6 6h4v4H7zm6 0h4v4h-4z"/>
+          </svg>
+        </span>
+        <span class="sidebar__label">Experiments</span>
+      </a>
+      <a class="sidebar__link" href="#/tools" data-link data-nav="tools" title="Tools">
+        <span class="sidebar__icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
+            <path d="M19.73 14.23l.08-.03-3.48-1.79a1 1 0 00-1.15.19l-2.07 2.07a7.97 7.97 0 01-3.86-3.86l2.07-2.07a1 1 0 00.19-1.15L9.8 4.19l-.03-.08A.96.96 0 008.93 3H5a1 1 0 00-.99 1.13 10.02 10.02 0 009.86 9.86A1 1 0 0014 19V15.07a.96.96 0 00-.27-.84z"/>
+          </svg>
+        </span>
+        <span class="sidebar__label">Tools</span>
+      </a>
+      <a class="sidebar__link" href="#/projects" data-link data-nav="projects" title="Projects">
+        <span class="sidebar__icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
+            <path d="M20 6h-4V4c0-1.1-.9-2-2-2h-4c-1.1 0-2 .9-2 2v2H4c-1.1 0-2 .9-2 2v11c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2zm-8 0h-4V4h4v2zm8 13H4V8h16v11z"/>
+          </svg>
+        </span>
+        <span class="sidebar__label">Projects</span>
+      </a>
+      <a class="sidebar__link" href="#/profile" data-link data-nav="profile" title="Profile">
+        <span class="sidebar__icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
+            <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
+          </svg>
+        </span>
+        <span class="sidebar__label">Profile</span>
+      </a>
+    </nav>
+  </aside>
+  <div class="sidebar-scrim" aria-hidden="true"></div>
+  <main id="view" class="view main-content" role="main"></main>
+</div>
+
+<footer class="footer">
+  <div class="footer__inner">
+    <p class="footer__brandline">
+      <em class="footer__brandlab" data-bind="laboratory.name">Digital Laboratory</em>
+    </p>
+    <p class="footer__line">
+      <span data-bind="laboratory.tagline">Digital Laboratory</span>
+      &middot; <span data-bind="laboratory.address">SREE SAINATH NAGAR, A. RANGAMPETA, TIRUPATI - 517102</span>
+    </p>
+    <p class="footer__copy">&copy; <span data-bind="labMeta.copyrightYear">2026</span> <span data-bind="labMeta.footerNote">Laboratory records are for academic use.</span></p>
+    <p class="footer__meta">
+      Subject Code <span data-bind="labMeta.subjectCode">&mdash;</span>
+      &middot; <span data-bind="labMeta.academicYear">&mdash;</span>
+      &middot; <span data-bind="labMeta.department">&mdash;</span>
+    </p>
+    <div class="footer__social" id="footerSocial"></div>
+  </div>
+</footer>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script src="assets/js/data.js"></script>
+<script src="assets/js/codelab-py.js"></script>
+<script src="assets/js/codelab.js"></script>
+<script src="assets/js/app.js"></script>
+</body>
+</html> -->
+
+
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#eef2ff">
+  <title>Digital Laboratory</title>
+
+  <link rel="stylesheet" href="assets/css/styles.css">
+
+  <style>
+    :root {
+      --blue: #2563eb;
+      --purple: #7c3aed;
+      --pink: #db2777;
+      --cyan: #06b6d4;
+      --ink: #172554;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      color: var(--ink);
+      background: linear-gradient(135deg, #f0f7ff, #f4edff, #fff1f8);
+      font-family: Inter, "Segoe UI", Arial, sans-serif;
+    }
+
+    /* Colorful background */
+    .bg-decor .orb-a {
+      background: radial-gradient(circle, #60a5fa, #818cf8, transparent 70%);
+      opacity: .5;
+    }
+
+    .bg-decor .orb-b {
+      background: radial-gradient(circle, #f0abfc, #c084fc, transparent 70%);
+      opacity: .5;
+    }
+
+    /* Glass-style header */
+    .topbar {
+      background: rgba(255, 255, 255, .88) !important;
+      backdrop-filter: blur(18px);
+      border-bottom: 1px solid #ddd6fe;
+      box-shadow: 0 8px 30px #312e8110;
+    }
+
+    .topbar__brand {
+      font-weight: 800;
+      letter-spacing: -.5px;
+    }
+
+    .topbar__lab [data-bind="laboratory.name"],
+    .footer__brandlab {
+      background: linear-gradient(90deg, #2563eb, #7c3aed, #db2777);
+      background-clip: text;
+      -webkit-background-clip: text;
+      color: transparent !important;
+    }
+
+    .topbar__tag {
+      color: var(--purple) !important;
+    }
+
+    .chip {
+      background: linear-gradient(110deg, #dbeafe, #f3e8ff) !important;
+      color: #4338ca !important;
+      border: 1px solid #c4b5fd;
+      border-radius: 50px;
+    }
+
+    /* Sidebar */
+    .sidebar {
+      background: rgba(255, 255, 255, .9) !important;
+      backdrop-filter: blur(15px);
+      border-right: 1px solid #ddd6fe;
+    }
+
+    .sidebar__link {
+      margin: 5px 10px;
+      border-radius: 14px;
+      transition: .25s ease;
+    }
+
+    .sidebar__link:hover {
+      transform: translateX(4px);
+      background: linear-gradient(100deg, #dbeafe, #f3e8ff) !important;
+      color: #4f46e5 !important;
+    }
+
+    .sidebar__link.active,
+    .sidebar__link[aria-current="page"] {
+      color: white !important;
+      background: linear-gradient(110deg, #2563eb, #7c3aed, #a855f7) !important;
+      box-shadow: 0 8px 22px #7c3aed35;
+    }
+
+    .sidebar__link.active .sidebar__icon,
+    .sidebar__link[aria-current="page"] .sidebar__icon {
+      color: white !important;
+    }
+
+    /* Main page */
+    .main-content {
+      min-height: 65vh;
+    }
+
+    .main-content h1 {
+      color: #312e81;
+      font-weight: 850;
+      letter-spacing: -1px;
+    }
+
+    .main-content h2,
+    .main-content h3 {
+      color: #4338ca;
+      letter-spacing: -.4px;
+    }
+
+    /* Cards */
+    .main-content :is(.card,
+      .module-card,
+      .experiment-card,
+      .tool-card,
+      .project-card,
+      .panel,
+      .profile-card) {
+      border: 1px solid #e0e7ff;
+      border-radius: 20px;
+      box-shadow: 0 10px 30px #312e8110;
+      transition: transform .25s ease, box-shadow .25s ease;
+    }
+
+    .main-content :is(.card,
+      .module-card,
+      .experiment-card,
+      .tool-card,
+      .project-card,
+      .panel,
+      .profile-card):hover {
+      transform: translateY(-4px);
+      box-shadow: 0 18px 35px #7c3aed20;
+    }
+
+    /* Buttons */
+    .main-content button,
+    .main-content .btn,
+    .main-content [role="button"] {
+      border-radius: 12px;
+      transition: .2s ease;
+    }
+
+    .main-content button:hover,
+    .main-content .btn:hover,
+    .main-content [role="button"]:hover {
+      transform: translateY(-2px);
+      filter: brightness(1.04);
+    }
+
+    /* Form fields */
+    .main-content input,
+    .main-content select,
+    .main-content textarea {
+      border: 1px solid #c7d2fe !important;
+      border-radius: 12px !important;
+      background: #ffffffee !important;
+    }
+
+    .main-content input:focus,
+    .main-content select:focus,
+    .main-content textarea:focus {
+      outline: 3px solid #818cf830;
+      border-color: #818cf8 !important;
+    }
+
+    /* Footer */
+    .footer {
+      background: #ffffffb8 !important;
+      border-top: 1px solid #ddd6fe;
+      backdrop-filter: blur(12px);
+    }
+
+    /* Mobile */
+    @media (max-width: 760px) {
+      .topbar {
+        padding-inline: 12px;
+      }
+
+      .main-content {
+        padding-inline: 14px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+
+      *,
+      *::before,
+      *::after {
+        animation: none !important;
+        transition: none !important;
+        scroll-behavior: auto !important;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="bg-decor" aria-hidden="true">
+    <div class="orb orb-a"></div>
+    <div class="orb orb-b"></div>
+    <div class="grid-lines"></div>
+  </div>
+
+  <header class="topbar">
+    <button class="icon-btn topbar__menu" type="button" data-sidebar-toggle aria-controls="siteNav" aria-expanded="true"
+      aria-label="Toggle navigation menu">
+      ☰
+    </button>
+
+    <a class="topbar__brand" href="#/" data-link>
+      <span class="topbar__names">
+        <span class="topbar__lab">
+          <span data-bind="laboratory.name">Digital Laboratory</span>
+          <em class="topbar__tag" data-bind="laboratory.tagline">
+            Digital Laboratory
+          </em>
+        </span>
+      </span>
+    </a>
+
+    <div class="topbar__right">
+      <span class="chip chip--ghost">
+        <span class="chip__label">Subject Code:</span>
+        <span data-bind="labMeta.subjectCode">22DS102006</span>
+      </span>
+    </div>
+  </header>
+
+  <div class="app-layout">
+    <aside class="sidebar" id="siteNav" aria-label="Main navigation">
+      <nav class="sidebar__nav">
+        <a class="sidebar__link" href="#/" data-link data-nav="home">
+          <span class="sidebar__icon">⌂</span>
+          <span class="sidebar__label">Home</span>
+        </a>
+
+        <a class="sidebar__link" href="#/modules" data-link data-nav="modules">
+          <span class="sidebar__icon">▤</span>
+          <span class="sidebar__label">Modules</span>
+        </a>
+
+        <a class="sidebar__link" href="#/experiments" data-link data-nav="experiments">
+          <span class="sidebar__icon">▦</span>
+          <span class="sidebar__label">Experiments</span>
+        </a>
+
+        <a class="sidebar__link" href="#/tools" data-link data-nav="tools">
+          <span class="sidebar__icon">⚙</span>
+          <span class="sidebar__label">Tools</span>
+        </a>
+
+        <a class="sidebar__link" href="#/projects" data-link data-nav="projects">
+          <span class="sidebar__icon">▣</span>
+          <span class="sidebar__label">Projects</span>
+        </a>
+
+        <a class="sidebar__link" href="#/profile" data-link data-nav="profile">
+          <span class="sidebar__icon">♙</span>
+          <span class="sidebar__label">Student Profile</span>
+        </a>
+      </nav>
+    </aside>
+
+    <div class="sidebar-scrim" aria-hidden="true"></div>
+    <main id="view" class="view main-content" role="main"></main>
+  </div>
+
+  <footer class="footer">
+    <div class="footer__inner">
+      <p class="footer__brandline">
+        <em class="footer__brandlab" data-bind="laboratory.name">
+          Digital Laboratory
+        </em>
+      </p>
+
+      <p class="footer__line">
+        <span data-bind="laboratory.tagline">Digital Laboratory</span>
+        ·
+        <span data-bind="laboratory.address">
+          SREE SAINATH NAGAR, A. RANGAMPETA, TIRUPATI - 517102
+        </span>
+      </p>
+
+      <p class="footer__copy">
+        © <span data-bind="labMeta.copyrightYear">2026</span>
+        <span data-bind="labMeta.footerNote">
+          Laboratory records are for academic use.
+        </span>
+      </p>
+
+      <p class="footer__meta">
+        Subject Code <span data-bind="labMeta.subjectCode">—</span>
+        · <span data-bind="labMeta.academicYear">—</span>
+        · <span data-bind="labMeta.department">—</span>
+      </p>
+
+      <div class="footer__social" id="footerSocial"></div>
+    </div>
+  </footer>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <!-- Keep your existing JavaScript files -->
+  <script src="assets/js/data.js"></script>
+  <script src="assets/js/codelab-py.js"></script>
+  <script src="assets/js/codelab.js"></script>
+  <script src="assets/js/app.js"></script>
+</body>
+
+</html>
